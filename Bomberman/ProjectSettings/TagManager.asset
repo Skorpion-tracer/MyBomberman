@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Bomb
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Filed
+    uniqueID: 1726279215
+    locked: 0
+  - name: Decorations
+    uniqueID: 3033558439
+    locked: 0
+  - name: Foreground
+    uniqueID: 2122895267
     locked: 0
