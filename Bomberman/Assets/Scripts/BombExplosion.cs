@@ -15,7 +15,6 @@ public class BombExplosion : MonoBehaviour
 
         if (_timer >= _maxTimer)
         {
-            Debug.Log("Bang");
             Instantiate(_effectBang, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

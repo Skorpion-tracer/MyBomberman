@@ -11,4 +11,12 @@ public class ExplosionEffect : MonoBehaviour
 
         Destroy(gameObject, _animation.runtimeAnimatorController.animationClips[0].length);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<IDamage>(out IDamage damage))
+        {
+            damage.Damage();
+        }
+    }
 }

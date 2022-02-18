@@ -32,42 +32,10 @@ public class PlayerMove : MonoBehaviour
 #endif
 
 #if UNITY_ANDROID
-        if (CrossPlatformInputManager.GetButtonDown(RIGHT))
-        {
-            _direction.x = 1;
-        }
-        if (CrossPlatformInputManager.GetButtonDown(LEFT))
-        {
-            _direction.x = -1;
-        }
-        if (CrossPlatformInputManager.GetButtonDown(UP))
-        {
-            _direction.y = 1;
-        }
-        if (CrossPlatformInputManager.GetButtonDown(DOWN))
-        {
-            _direction.y = -1;
-        }
-
-        if (CrossPlatformInputManager.GetButtonUp(RIGHT))
-        {
-            _direction.x = 0;
-        }
-        if (CrossPlatformInputManager.GetButtonUp(LEFT))
-        {
-            _direction.x = 0;
-        }
-        if (CrossPlatformInputManager.GetButtonUp(UP))
-        {
-            _direction.y = 0;
-        }
-        if (CrossPlatformInputManager.GetButtonUp(DOWN))
-        {
-            _direction.y = 0;
-        }
+        SetDirection(ref _direction);        
 #endif
 
-        CheckDirection();
+        CorrectlyOfMovement();
     }
 
     private void FixedUpdate()
@@ -75,7 +43,7 @@ public class PlayerMove : MonoBehaviour
         _rigidbody2D.MovePosition(_rigidbody2D.position + _direction * _speed * Time.fixedDeltaTime);        
     }
 
-    private void CheckDirection()
+    private void CorrectlyOfMovement()
     {
         if (_direction.x > 0)
         {
@@ -92,6 +60,43 @@ public class PlayerMove : MonoBehaviour
         if (_direction.y < 0)
         {
             _swapSprite.SetSprite(DirectionSprite.Down);
+        }
+    }
+
+    private void SetDirection(ref Vector2 coordinate)
+    {
+        if (CrossPlatformInputManager.GetButtonDown(RIGHT))
+        {
+            coordinate.x = 1;
+        }
+        if (CrossPlatformInputManager.GetButtonDown(LEFT))
+        {
+            coordinate.x = -1;
+        }
+        if (CrossPlatformInputManager.GetButtonDown(UP))
+        {
+            coordinate.y = 1;
+        }
+        if (CrossPlatformInputManager.GetButtonDown(DOWN))
+        {
+            coordinate.y = -1;
+        }
+
+        if (CrossPlatformInputManager.GetButtonUp(RIGHT))
+        {
+            coordinate.x = 0;
+        }
+        if (CrossPlatformInputManager.GetButtonUp(LEFT))
+        {
+            coordinate.x = 0;
+        }
+        if (CrossPlatformInputManager.GetButtonUp(UP))
+        {
+            coordinate.y = 0;
+        }
+        if (CrossPlatformInputManager.GetButtonUp(DOWN))
+        {
+            coordinate.y = 0;
         }
     }
 }

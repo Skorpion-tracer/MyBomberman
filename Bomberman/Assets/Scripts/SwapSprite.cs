@@ -3,12 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SwapSprite : MonoBehaviour
 {
-    [SerializeField] private Sprite _frontSprite;
-    [SerializeField] private Sprite _backSprite;
-    [SerializeField] private Sprite _upSprite;
-    [SerializeField] private Sprite _downSprite;
+    [Header("Calm State")]
+    [SerializeField] protected Sprite _frontSprite;
+    [SerializeField] protected Sprite _backSprite;
+    [SerializeField] protected Sprite _upSprite;
+    [SerializeField] protected Sprite _downSprite;
 
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] protected SpriteRenderer _spriteRenderer;
 
     public void SetSprite(DirectionSprite directionSprite)
     {
